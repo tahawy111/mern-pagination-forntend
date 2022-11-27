@@ -81,7 +81,7 @@ function App() {
               <CardActions>
                 <Button size="small">
                   <a
-                    href="https://youtube.com/@tahawy111"
+                    href="https://youtube.com/@tahawy.111"
                     style={{ textDecoration: "none", color: "inherit" }}
                     target="_blank"
                     rel="noopener noreferrer"
@@ -106,12 +106,12 @@ function App() {
       <footer className="footer">
         <h3>Welcome to my Channel "عامر الطحاوي"</h3>
         <a
-          href="https://youtube.com/@tahawy111"
+          href="https://youtube.com/@tahawy.111"
           target="_blank"
           style={{ color: "#198bde", fontSize: "20px" }}
           rel="noopener noreferrer"
         >
-          https://youtube.com/@tahawy111
+          https://youtube.com/@tahawy.111
         </a>
         <p>Copyright &copy; {new Date().getFullYear()}</p>
       </footer>
