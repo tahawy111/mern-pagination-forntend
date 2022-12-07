@@ -7,6 +7,7 @@ import {
   Card,
   CardActions,
   CardContent,
+  CircularProgress,
   Pagination,
   Typography,
 } from "@mui/material";
@@ -15,10 +16,8 @@ function App() {
   const pageNumber = useParams().pageNumber || 1;
   const [posts, setPosts] = useState([]);
   const [loading, setLoading] = useState(false);
-  const [error, setError] = useState(false);
   const [page, setPage] = useState(pageNumber);
   const [pages, setPages] = useState(1);
-  const [count, setCount] = useState(1);
 
   useEffect(() => {
     const fetchPosts = async () => {
@@ -27,18 +26,31 @@ function App() {
         const res = await fetch(
           `https://mern-pagination-server.onrender.com/get?page=${page}`
         );
-        const { pages: totalPages, data, total } = await res.json();
+        const { pages: totalPages, data } = await res.json();
         setPages(totalPages);
         setPosts(data);
         setLoading(false);
-        setCount(total);
       } catch (error) {
         setLoading(false);
-        setError("Some error occured");
       }
     };
     fetchPosts();
   }, [page]);
+
+  if (loading) {
+    return (
+      <div
+        style={{
+          display: "flex",
+          justifyContent: "center",
+          alignItems: "center",
+          minHeight: "100vh",
+        }}
+      >
+        <CircularProgress />
+      </div>
+    );
+  }
 
   return (
     <div className="app">
