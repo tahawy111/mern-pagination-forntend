@@ -24,7 +24,7 @@ function App() {
       try {
         setLoading(true);
         const res = await fetch(
-          `https://mern-pagination-server.onrender.com/get?page=${page}`
+          `https://mern-pagination-server-production.up.railway.app/get?page=${page}`
         );
         const { pages: totalPages, data } = await res.json();
         setPages(totalPages);
